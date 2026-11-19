@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Shore — Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>Neon Shore <span>Cover Studio</span></h1>
+    <p>Your photo + a caption, turned into a multi-panel poster cover.</p>
+  </div>
+  <p class="topbar-note">Photos never leave this machine.</p>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <fieldset>
+      <legend>1 · Photos</legend>
+      <p class="hint">Add up to four photos — one per panel. Click a panel in the preview to pick which one you adjust.</p>
+      <div id="tray" class="tray"></div>
+      <div class="row">
+        <label class="file-btn">Add photos
+          <input id="photoFiles" type="file" accept="image/*" multiple>
+        </label>
+        <button id="samplePhotos" type="button">Try samples</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2 · Layout &amp; grade</legend>
+      <div id="layoutButtons" class="seg" role="group" aria-label="Layout"></div>
+      <div id="gradeButtons" class="seg" role="group" aria-label="Colour grade"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3 · Caption</legend>
+      <label>Title
+        <input id="title" type="text" maxlength="40" value="Neon Shore" autocomplete="off">
+      </label>
+      <label>Tagline
+        <input id="tagline" type="text" maxlength="60" value="One last ride" autocomplete="off">
+      </label>
+      <div class="row swatches" id="titleColors" aria-label="Title colour"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4 · Selected photo</legend>
+      <p class="hint" id="selectedLabel">Panel 1 — drag the photo in the preview to move it.</p>
+      <label>Zoom <span id="zoomValue">1.0×</span>
+        <input id="zoom" type="range" min="1" max="2.5" step="0.05" value="1">
+      </label>
+      <div class="row">
+        <button id="flipPhoto" type="button">Flip</button>
+        <button id="centerPhoto" type="button">Centre</button>
+        <button id="clearPhoto" type="button">Remove</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>5 · Export</legend>
+      <div id="sizeButtons" class="seg" role="group" aria-label="Export size"></div>
+      <button id="exportPng" type="button" class="primary">Export PNG</button>
+      <p id="status" role="status"></p>
+    </fieldset>
+  </section>
+
+  <section class="stage" aria-label="Cover preview">
+    <canvas id="preview" width="720" height="720" aria-label="The cover preview"></canvas>
+    <p class="hint">Click a panel to select it · drag to reposition its photo · scroll to zoom it.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
