@@ -1,46 +1,22 @@
-# SUBMIT READY — gta6-cover-art-01 (status: package complete under recording, submission needs repo + seal)
+# SUBMIT READY — gta6-cover-art-01 (round 5)
 
-## Package — ready
+- Repo: `neon-shore-cover-studio` (to be created on GitHub by parent)
+- Branch: `main` — local commit `d728e111face0043a8086c0a6220221561df8f40`
+  (amended below with this file; see final SHA in the parent's seal step)
+- Recording id: `01a1f707-3b69-7261-9b88-711c454db717`
+- Owner wallet: `HUKLK39fU8yRN7ZcKzZctTv61dVrHDeKBgGuZWixzT5M` (dedicated agent wallet)
 
-- Work dir: `~/workspace/goals/make-fun-bounty-submissions/work/gta6-cover-art-01-recorded2/`
-- Code commit: `24c5c7a206118e320070efd5c2ac9504d4fcc682` (root commit, 25 files, branch main, not pushed)
-- Docs commit: NOTES.md + SUBMIT_READY.md on top of the code commit — submit the HEAD commit on main (its SHA is in the parent agent's report for this session)
-- Recording id: `01a1f5ef-6e66-7697-891b-67c035304120` (started before this build session; parent seals it)
-- This session's agent id: `c0523403-d0a7-4fb3-abc5-8b5b3a333c8a`
-- Title: **Neon Shore Cover Studio**
-- Deadline: **Sat 2026-11-21 17:30 WIB** (2026-11-21T10:30:00Z)
-- Verified: main.ts run twice → byte-identical outputs; all gate limits pass;
-  kit `check` on the commit → 4 passed, 0 failed; 4 screenshots visually
-  inspected; real export click at 1920×1080 produced a valid PNG
-  (2,879,703 bytes). Details in NOTES.md.
+## Verification evidence
+- `main.ts` run twice (`MAKEFUN_OUTPUT_DIR=/tmp/out1` and `/tmp/out2`):
+  `diff -r` identical — deterministic.
+- dossier.json 858,828 bytes (< 1.5 MiB); app/ 10 files, 199,176 bytes.
+- Screenshots 4 JPEGs, 112–199 KiB each, sizes 1080×1080 / 1280×800 /
+  1080×1080 / 1280×720 — all within gate limits.
+- No network references in app source; fonts vendored locally (OFL).
+- Screenshots visually checked once; one real defect fixed (long title
+  overflow) and re-shot once.
 
-## What still blocks submission (in order)
-
-### 1. Recording — seal it (parent's step, not this session's)
-- The recording is still running. Seal it from the parent session after this
-  build session ends: `kill "$(cat ~/.makefun/record-gta6-cover-art-01.pid)"`,
-  then wait until `~/.makefun/record-gta6-cover-art-01.log` says
-  `recording 01a1f5ef-6e66-7697-891b-67c035304120 sealed at <time>`.
-- Do NOT fake a recording id. Do NOT submit without the sealed id — the form
-  requires `recording_ids` and this competition takes no transcript upload.
-- Login is already complete (Bos approved connect code TPSP-LFFD himself
-  ~00:43 WIB; API key in `~/.makefun/credentials`, CLI profile @wasu-tenan).
-
-### 2. GitHub repo — does not exist yet
-- Create a NEW public repo **wasu-tenan/neon-shore-cover-studio** (must be created
-  after the opening 2026-11-19 17:30 WIB — creating it now satisfies this), push
-  the HEAD commit on main.
-- Set GitHub About before submitting (template in the requirements):
-  `gh repo edit wasu-tenan/neon-shore-cover-studio --description 'Neon Shore Cover Studio turns your photos and a caption into a multi-panel GTA-style poster cover — Hero, Duo, Trio and Quad layouts, four Vice City colour grades, drag-to-position photos, and PNG export in 1080 × 1080, 1080 × 1350 or 1920 × 1080. Fully offline: a static web app, photos never leave your machine. Built by an AI agent for make.fun'"'"'s "Make GTA 6 Cover Art" bounty, $250 in USDC.' --homepage 'https://make.fun/bounty/gta6-cover-art-01' --add-topic 'makefun,ai-agents,bounties,games'`
-  (README.md already carries the three make.fun badges with owner/repo filled in.)
-- Re-download the kit first (this copy is level 26, site is at level 27):
-  from the kit's parent dir: `curl -sSL "https://make.fun/c/gta6-cover-art-01/kit" | tar xz`
-
-### 3. Pre-submit check, then submit (from inside the unpacked kit)
-- `node cli/makefun.mjs check --kit . --repo <workdir>` (already run here on the
-  code commit: 4 passed, 0 failed — re-run after any new commit).
-- Submit (escrowed prizes → signed entry; keypair = agent wallet file
-  `~/.makefun/keypairs/https_make.fun.json`, mode 600, never share its contents):
-  `node cli/makefun.mjs submit --competition gta6-cover-art-01 --recording 01a1f5ef-6e66-7697-891b-67c035304120 --repo-url https://github.com/wasu-tenan/neon-shore-cover-studio --commit <HEAD sha from the parent report> --title "Neon Shore Cover Studio" --keypair ~/.makefun/keypairs/https_make.fun.json --repo <workdir>`
-- Then follow it: `node cli/makefun.mjs status --submission <id>`.
-- No login/submit was attempted from this build session.
+## Still needed (parent)
+- Create public GitHub repo `wasu-tenan/neon-shore-cover-studio`, push `main`.
+- Seal recording `01a1f707-3b69-7261-9b88-711c454db717`, then submit with the
+  commit SHA and recording id. Deadline Sat 2026-11-21 17:30 WIB.
